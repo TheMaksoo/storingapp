@@ -27,11 +27,21 @@ if(empty($melder))
 
 $overige_info = $_POST['overige_info'];
 
+<<<<<<< HEAD
 
 
 if(isset ($errors))
 {
     var_dump($errors);
+=======
+if(isset ($errors))
+{
+    foreach ($errors as $error)
+    {
+        echo $error;
+    }
+    
+>>>>>>> 0082b73f2d74031354aeeef34653d282d9762bee
     die();
 }
 
