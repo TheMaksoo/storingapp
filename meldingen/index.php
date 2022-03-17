@@ -26,7 +26,6 @@
             $statement = $conn->prepare($query);
             $statement->execute();
             $meldingen = $statement->fetchAll(PDO::FETCH_ASSOC);
-            
         ?>
         <table>
             <tr>
@@ -38,6 +37,7 @@
                 <th>Gemeld op</th>
                 <th>Overige info</th>
                 <th>Aanpassen</th>
+
             </tr>
             <?php foreach($meldingen as $melding): ?>
                 <tr>

@@ -27,8 +27,6 @@ if(empty($melder))
 
 $overige_info = $_POST['overige_info'];
 
-
-
 if(isset ($errors))
 {
     var_dump($errors);
