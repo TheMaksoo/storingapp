@@ -2,6 +2,7 @@
 
 //Variabelen vullen
 $attractie = $_POST['attractie'];
+$id = $_POST['id']; 
 if(empty($attractie))
 {
    $errors[] = "Vul de attractie-naam in.\n";
@@ -41,8 +42,7 @@ echo $attractie . " / " . $type . " / " . $capaciteit . " / " . $melder . " / " 
 require_once 'conn.php';
 
 //2. Query
-$query = "INSERT INTO meldingen(attractie, type, capaciteit, melder, overige_info)
-VALUES (:attractie, :type, :capaciteit, :melder, :overige_info)";
+$query = "UPDATE meldingen SET attractie = :attractie, type = :type, capaciteit = :capaciteit, melder = :melder, overige_info = :overige_info WHERE id = :id";
 
 //3. Prepare
 $statement = $conn->prepare($query);
@@ -53,7 +53,8 @@ $statement->execute([
     ":type" => $type,
     ":capaciteit" => $capaciteit,
     ":melder" => $melder,
-    ":overige_info" => $overige_info
+    ":overige_info" => $overige_info,
+    ":id" => $id
 ]);
 
 header("Location:../meldingen/index.php?msg=Melding opgeslagen");
